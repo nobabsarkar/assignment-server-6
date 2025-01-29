@@ -4,10 +4,9 @@ import router from "./app/routes";
 import globalErrorHandler from "./app/middleweres/globalErrorHandler";
 import notFound from "./app/middleweres/notFound";
 const app: Application = express();
-const port = 3000;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
 app.use("/api", router);
 
